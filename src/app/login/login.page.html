@@ -1,0 +1,25 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="title">
+    <h4>Appcuarios</h4>
+    <p>Tienda de peces</p>
+  </div>
+
+  <ion-input placeholder="Email" class="primary-input"  [(ngModel)]="email"></ion-input>
+  <ion-input placeholder="Contraseña" type="password" class="primary-input"  [(ngModel)]="password"></ion-input>
+
+  <div class="ion-margin-top ion-text-right forget">
+    <a>¿Olvidé mi contraseña?</a>
+  </div>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="login()">Iniciar Sesión</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">Cerrar</a>
+  </div>
+</ion-content>

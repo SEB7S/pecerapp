@@ -1,0 +1,27 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="title">
+    <h4 *ngIf="!editar">Registrar Usuario</h4>
+    <h4 *ngIf="editar">Editar Usuario</h4>
+
+    <p>gentión de usuarios</p>
+  </div>
+
+  <ion-input placeholder="Nombre" class="primary-input"  [(ngModel)]="displayName"></ion-input>
+  <ion-input placeholder="Email" class="primary-input"  [(ngModel)]="email"></ion-input>
+  <ion-input placeholder="Rol" class="primary-input"  [(ngModel)]="rol"></ion-input>
+  <ion-input *ngIf="!editar" placeholder="Contraseña" type="password" class="primary-input"  [(ngModel)]="password"></ion-input>
+
+
+  <div class="ion-margin-top">
+    <ion-button *ngIf="!editar" expand="block" (click)="add_user()">Registrar Usuario</ion-button>
+    <ion-button *ngIf="editar" expand="block" (click)="edit_user()">Editar Usuario</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">Cerrar</a>
+  </div>
+</ion-content>

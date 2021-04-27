@@ -1,17 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Pecera
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="primary">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large" class="fondo" color="primary">Acuario</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ng-container *ngFor ="let data of aPeces">
+    <ion-card>
+      <ion-card-header>
+        <p> <strong>Nombre:</strong>  {{data.pk_nombre}}</p>
+        <p> <strong>Comportamiento:</strong> {{data.pk_nombre}}</p>
+        <p> <strong>Tamaño:</strong> {{data.fk_tipotamano }}</p>
+        <p> <strong>¿Oxigeno?:</strong> {{data.oxigeno}}</p>
+        <p> <strong>¿Calefaccioón?:</strong> {{data.calefaccion}}</p>
+      </ion-card-header>
+        </ion-card>
+    
+  </ng-container>
+  <!-- fab placed to the (vertical) center and end -->
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<!--   <app-explore-container>
+    
+  </app-explore-container> -->
 </ion-content>

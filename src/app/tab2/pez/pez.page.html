@@ -1,0 +1,28 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="title">
+    <h4 *ngIf="!editar">Registrar Pez</h4>
+    <h4 *ngIf="editar">Editar Pez</h4>
+
+    <p>gentión de peces</p>
+  </div>
+  
+  <ion-input placeholder="Nombre" class="primary-input"  [(ngModel)]="pk_nombre"></ion-input>
+  <ion-input placeholder="Comportamiento" class="primary-input"  [(ngModel)]="fk_comportamiento"></ion-input>
+  <ion-input placeholder="Tamaño" class="primary-input"  [(ngModel)]="fk_tipotamano"></ion-input>
+  <ion-input placeholder="Oxigeno" class="primary-input"  [(ngModel)]="oxigeno"></ion-input>
+  <ion-input placeholder="Calefaccion" class="primary-input"  [(ngModel)]="calefaccion"></ion-input>
+ 
+
+  <div class="ion-margin-top">
+    <ion-button *ngIf="!editar" expand="block" (click)="add_pez()">Registrar Pez</ion-button>
+    <ion-button *ngIf="editar" expand="block" (click)="edit_pez()">Editar Pez</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">Cerrar</a>
+  </div>
+</ion-content>
