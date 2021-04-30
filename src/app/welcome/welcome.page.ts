@@ -31,6 +31,8 @@ export class WelcomePage implements OnInit {
     
   }
 
+
+
 /*   async register() {
     const modal = await this.modalCtrl.create({
       component: RegisterPage,

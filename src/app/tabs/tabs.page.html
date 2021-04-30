@@ -1,17 +1,40 @@
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú Principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list >
+      <ion-item side="end">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfíl</ion-label>
+      </ion-item>
+      <ion-item side="end" (click)="fn_logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-router-outlet id="main"></ion-router-outlet>
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1">
+    <ion-tab-button *ngIf="bMostrar" tab="tab1">
       <ion-icon name="people-outline"></ion-icon>
       <ion-label>Usuarios</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2">
+    <ion-tab-button *ngIf="bMostrar" tab="tab2">
       <ion-icon name="fish-outline"></ion-icon>
       <ion-label>Peces</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
+    <ion-tab-button *ngIf="!bMostrar" tab="tab3">
       <ion-icon name="cart-outline"></ion-icon>
       <ion-label>Tienda</ion-label>
     </ion-tab-button>

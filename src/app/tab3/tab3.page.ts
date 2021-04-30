@@ -16,20 +16,13 @@ export class Tab3Page implements OnInit{
     
     }
   get_pez() {
-    console.log(localStorage.getItem('token'))
-
     this.serviciosServices.get_peces(localStorage.getItem('token')).subscribe(resp => {
       this.aPeces = resp['pez']
-      console.log('login', resp)
-      console.log(this.aPeces)
     })
   }
   doRefresh(event) {
-    console.log('Begin async operation');
-
     setTimeout(() => {
       this.get_pez();
-      console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }

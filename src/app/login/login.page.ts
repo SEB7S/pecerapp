@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   public password: String;
   constructor(
     public modalCtrl: ModalController,
-    private serviciosServices : ServiciosService,
+    private serviciosServices: ServiciosService,
     private router: Router,
     private activatedRoute: ActivatedRoute
 
@@ -26,20 +26,31 @@ export class LoginPage implements OnInit {
     await this.modalCtrl.dismiss();
   }
 
-  login(){
+
+  
+  login() {
     let datos = {
       email: this.email,
       password: this.password
     }
 
-    this.serviciosServices.login(datos).subscribe(resp =>{
-      this.router.navigateByUrl('/tabs')
+    this.serviciosServices.login(datos).subscribe(resp => {
+      if (datos.email == "admin@gmail.com") {
+        localStorage.setItem("nombre", "administrador")
+        this.router.navigateByUrl('/tabs')
+      }else{
+        localStorage.setItem("nombre", "cliente ")
+        this.router.navigateByUrl('/tabs/tab3')
+      }
       localStorage.setItem("token", resp['token'])
+
+      
+
       this.dismiss()
-      console.log('login', resp)
+
     })
-    console.log(datos)
-    
+
+
 
   }
 }

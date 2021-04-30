@@ -26,14 +26,14 @@ export class Tab1Page implements OnInit {
         icon: 'trash',
         handler: () => {
           this.delete_user(id)
-          console.log('Delete clicked');
+
         }
       }, {
         text: 'Modificar',
         icon: 'pencil',
         handler: () => {
           this.fn_modificarUsuario(id)
-          console.log('Edit clicked', id);
+   
         }
       },
       {
@@ -41,36 +41,35 @@ export class Tab1Page implements OnInit {
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
+    
         }
       }]
     });
     await actionSheet.present();
 
     const { role } = await actionSheet.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+
   }
   ngOnInit() {
     this.get_user();
 
   }
   get_user() {
-    console.log(localStorage.getItem('token'))
+
 
     this.serviciosServices.get_usuarios(localStorage.getItem('token')).subscribe(resp => {
       this.aPeces = resp['usuarios']
-      console.log('login', resp)
-      console.log(this.aPeces)
+
     })
 
 
   }
   delete_user(id) {
-    console.log(localStorage.getItem('token'))
+
 
     this.serviciosServices.delete_user(id, localStorage.getItem('token')).subscribe(resp => {
       this.get_user();
-      console.log('login', resp)
+
 
     })
 
@@ -115,11 +114,11 @@ export class Tab1Page implements OnInit {
   }
 
   doRefresh(event) {
-    console.log('Begin async operation');
+
 
     setTimeout(() => {
       this.get_user();
-      console.log('Async operation has ended');
+
       event.target.complete();
     }, 2000);
   }

@@ -32,7 +32,6 @@ export class PezPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id, this.editar)
     this.get_pezId();
   }
 
@@ -48,15 +47,9 @@ export class PezPage implements OnInit {
       oxigeno: this.oxigeno,
       calefaccion: this.calefaccion
     }
-    console.log(datos)
-
     this.serviciosServices.add_pez(datos, localStorage.getItem('token')).subscribe(resp => {
       this.dismiss()
-      console.log('User', resp)
     })
-    console.log(datos)
-
-
   }
 
   edit_pez() {
@@ -67,19 +60,12 @@ export class PezPage implements OnInit {
       oxigeno: this.oxigeno,
       calefaccion: this.calefaccion
     }
-    console.log(datos)
-
     this.serviciosServices.edit_pez(this.id, datos, localStorage.getItem('token')).subscribe(resp => {
       this.dismiss()
-      console.log('User', resp)
     })
-    console.log(datos)
-
-
   }
 
   get_pezId() {
-    console.log(this.id)
     this.serviciosServices.get_pez(this.id, localStorage.getItem('token')).subscribe(resp => {
 
       this.pk_nombre = resp['peces'].pk_nombre,
@@ -87,10 +73,6 @@ export class PezPage implements OnInit {
         this.fk_tipotamano = resp['peces'].fk_tipotamano,
         this.oxigeno = resp['peces'].oxigeno,
         this.calefaccion = resp['peces'].calefaccion
-
-
-      console.log('login', resp)
-
     })
 
   }

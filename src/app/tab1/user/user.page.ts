@@ -29,7 +29,7 @@ export class UserPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id, this.editar)
+
     this.get_userId();
   }
 
@@ -43,13 +43,12 @@ export class UserPage implements OnInit {
       email: this.email,
       password: this.password
     }
-    console.log(datos) 
-
+ 
     this.serviciosServices.add_user(datos, localStorage.getItem('token')).subscribe(resp =>{
       this.dismiss()
-      console.log('User', resp)
+
     })
-    console.log(datos)
+
     
 
   }
@@ -59,19 +58,19 @@ export class UserPage implements OnInit {
       displayName:this.displayName,
       email: this.email,
     }
-    console.log(datos) 
+   
 
     this.serviciosServices.edit_user(this.id, datos, localStorage.getItem('token')).subscribe(resp =>{
       this.dismiss()
-      console.log('User', resp)
+
     })
-    console.log(datos)
+
     
 
   }
 
   get_userId(){
-    console.log(this.id)
+
     this.serviciosServices.get_usuario(this.id,localStorage.getItem('token')).subscribe(resp => {
       this.email = resp['usuario'].email
       this.displayName = resp['usuario'].displayName
@@ -80,7 +79,7 @@ export class UserPage implements OnInit {
       }else{
         this.rol= "Cliente"
       }
-      console.log('login', resp)
+
 
     })
 
